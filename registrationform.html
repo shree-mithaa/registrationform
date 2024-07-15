@@ -1,0 +1,312 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  
+  <style>
+    
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .error-message {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h2>Event Registration Form</h2>
+      <form id="registrationForm" onsubmit="return validateForm()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" name="name">
+          <div id="nameError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="registerNumber">Register Number</label>
+          <input type="text" class="form-control" id="registerNumber" name="registerNumber">
+          <div id="registerNumberError" class="error-message"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="branch">Degree</label>
+            <select class="form-control" id="degree" name="degree">
+                <option value="">Select Degree</option>
+                <option value="1">BE/B.Tech</option>
+                <option value="2">BSC</option>
+                <option value="3">M.Tech</option>
+                <option value="4"></option>
+              </select>
+            <div id="degreeError" class="error-message"></div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="department">Department</label>
+            <select class="form-control" id="department" name="department">
+              <option value="">Select Year</option>
+              <option value="1">CSE</option>
+              <option value="2">ECE</option>
+              <option value="3">EEE</option>
+              <option value="4">AIDS</option>
+            </select>
+            <div id="departmentError" class="error-message"></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="yearOfStudy">Year of Study</label>
+            <select class="form-control" id="yearOfStudy" name="yearOfStudy">
+              <option value="">Select Year</option>
+              <option value="1">First Year</option>
+              <option value="2">Second Year</option>
+              <option value="3">Third Year</option>
+              <option value="4">Fourth Year</option>
+            </select>
+            <div id="yearOfStudyError" class="error-message"></div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="fieldOfInterest">Field of Interest</label>
+            <input type="text" class="form-control" id="fieldOfInterest" name="fieldOfInterest">
+            <div id="fieldOfInterestError" class="error-message"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="eventName">Event Name</label>
+          <input type="text" class="form-control" id="eventName" name="eventName">
+          <div id="eventNameError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="collegeName">College Name</label>
+          <input type="text" class="form-control" id="collegeName" name="collegeName">
+          <div id="collegeNameError" class="error-message"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" class="form-control" id="contactNumber" name="contactNumber">
+            <div id="contactNumberError" class="error-message"></div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="address">Address</label>
+            <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+            <div id="addressError" class="error-message"></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+            <div id="phoneNumberError" class="error-message"></div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" name="state">
+            <div id="stateError" class="error-message"></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" name="city">
+            <div id="cityError" class="error-message"></div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="participatingEvent">Participating Event</label>
+            <select class="form-control" id="participatingEvent" name="participatingEvent">
+              <option value="">Select Event</option>
+              <option value="hackfest">Hackfest</option>
+              <option value="codeathon">Codeathon</option>
+              <option value="ideathon">Ideathon</option>
+            </select>
+            <div id="participatingEventError" class="error-message"></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="accommodationRequired">Accommodation Required?</label>
+            <select class="form-control" id="accommodationRequired" name="accommodationRequired">
+              <option value="">Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <div id="accommodationRequiredError" class="error-message"></div>
+          </div>
+        </div>
+        <div style="text-align: center;" class="form-group">
+          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="button" class="btn btn-secondary ml-2" onclick="clearForm()">Clear Form</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  
+  <script>
+    function validateForm() {
+      var name = document.getElementById('name').value;
+      var registerNumber = document.getElementById('registerNumber').value;
+      var degree = document.getElementById('degree').value;
+      var department = document.getElementById('department').value;
+      var yearOfStudy = document.getElementById('yearOfStudy').value;
+      var fieldOfInterest = document.getElementById('fieldOfInterest').value;
+      var eventName = document.getElementById('eventName').value;
+      var collegeName = document.getElementById('collegeName').value;
+      var contactNumber = document.getElementById('contactNumber').value;
+      var address = document.getElementById('address').value;
+      var phoneNumber = document.getElementById('phoneNumber').value;
+      var state = document.getElementById('state').value;
+      var city = document.getElementById('city').value;
+      var participatingEvent = document.getElementById('participatingEvent').value;
+      var accommodationRequired = document.getElementById('accommodationRequired').value;
+  
+      var nameError = document.getElementById('nameError');
+      var registerNumberError = document.getElementById('registerNumberError');
+      var degreeError = document.getElementById('degreeError');
+      var departmentError = document.getElementById('departmentError');
+      var yearOfStudyError = document.getElementById('yearOfStudyError');
+      var fieldOfInterestError = document.getElementById('fieldOfInterestError');
+      var eventNameError = document.getElementById('eventNameError');
+      var collegeNameError = document.getElementById('collegeNameError');
+      var contactNumberError = document.getElementById('contactNumberError');
+      var addressError = document.getElementById('addressError');
+      var phoneNumberError = document.getElementById('phoneNumberError');
+      var stateError = document.getElementById('stateError');
+      var cityError = document.getElementById('cityError');
+      var participatingEventError = document.getElementById('participatingEventError');
+      var accommodationRequiredError = document.getElementById('accommodationRequiredError');
+  
+      nameError.textContent = "";
+      registerNumberError.textContent = "";
+      degreeError.textContent = "";
+      departmentError.textContent = "";
+      yearOfStudyError.textContent = "";
+      fieldOfInterestError.textContent = "";
+      eventNameError.textContent = "";
+      collegeNameError.textContent = "";
+      contactNumberError.textContent = "";
+      addressError.textContent = "";
+      phoneNumberError.textContent = "";
+      stateError.textContent = "";
+      cityError.textContent = "";
+      participatingEventError.textContent = "";
+      accommodationRequiredError.textContent = "";
+  
+      var isValid = true;
+  
+      if (name.trim() === "") {
+        nameError.textContent = "Name is required";
+        isValid = false;
+      }
+  
+      if (registerNumber.trim() === "") {
+        registerNumberError.textContent = "Register Number is required";
+        isValid = false;
+      }
+  
+      if (degree === "") {
+        degreeError.textContent = "Degree is required";
+        isValid = false;
+      }
+  
+      if (department === "") {
+        departmentError.textContent = "Department is required";
+        isValid = false;
+      }
+  
+      if (yearOfStudy === "") {
+        yearOfStudyError.textContent = "Year of Study is required";
+        isValid = false;
+      }
+  
+      if (fieldOfInterest.trim() === "") {
+        fieldOfInterestError.textContent = "Field of Interest is required";
+        isValid = false;
+      }
+  
+      if (eventName.trim() === "") {
+        eventNameError.textContent = "Event Name is required";
+        isValid = false;
+      }
+  
+      if (collegeName.trim() === "") {
+        collegeNameError.textContent = "College Name is required";
+        isValid = false;
+      }
+  
+      if (contactNumber.trim() === "") {
+        contactNumberError.textContent = "Contact Number is required";
+        isValid = false;
+      }
+  
+      if (address.trim() === "") {
+        addressError.textContent = "Address is required";
+        isValid = false;
+      }
+  
+      if (phoneNumber.trim() === "") {
+        phoneNumberError.textContent = "Phone Number is required";
+        isValid = false;
+      }
+  
+      if (state.trim() === "") {
+        stateError.textContent = "State is required";
+        isValid = false;
+      }
+  
+      if (city.trim() === "") {
+        cityError.textContent = "City is required";
+        isValid = false;
+      }
+  
+      if (participatingEvent === "") {
+        participatingEventError.textContent = "Participating Event is required";
+        isValid = false;
+      }
+  
+      if (accommodationRequired === "") {
+        accommodationRequiredError.textContent = "Accommodation Required selection is required";
+        isValid = false;
+      }
+  
+      if (isValid) {
+        window.location.href = "thankyou.html";
+      }
+  
+      return false;
+    }
+  
+    function clearForm() {
+      document.getElementById('registrationForm').reset();
+    }
+  
+    function hideError(errorId) {
+      document.getElementById(errorId).textContent = "";
+    }
+  </script>
+  
+  
+    
+</body>
+</html>
